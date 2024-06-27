@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<head th:replace="~{plantilla/template :: head}">-->
+
+<head th:replace="~{plantilla/template :: head}">
+
+
+</head>
+
+<body>
+	<header th:replace="~{plantilla/template :: header}"></header>
+	<div class="container">
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+			<div class="card-body">
+				<form th:action="@{/views/productos/save}" th:object="${producto}" method="post">
+					<div class="form-group row">
+						<label for="codigo" class="form-label col-md-2">Código:</label>
+						<input type="hidden" th:field="*{id}">
+						<input type="text" th:field="*{codigo}" class="form-control form-control-sm col-md-6" id="codigo"
+							placeholder="Código del producto...">
+						<small></small>
+					</div>
+					<div class="form-group row">
+						<label for="nombre" class="form-label col-md-2">Nombre:</label>
+						<input type="text" th:field="*{nombre}" class="form-control form-control-sm col-md-6" id="nombre"
+							placeholder="Nombre del producto...">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+						<!--<div lass="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Nombre Error</div>-->
+					</div>
+					<div class="form-group row">
+						<label for="precio" class="form-label col-md-2">Precio:</label>
+						<input type="text" th:field="*{precio}" class="form-control form-control-sm col-md-6" id="precio"
+							placeholder="Precio del producto...">
+						<small></small>
+					</div><br>
+					<div class="card-footer bg-dark">
+						<input type="submit" class="btn btn-primary btn-sm" value="Guardar" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="~{plantilla/template :: footer}"></footer>
+
+</body>
+
+</html>

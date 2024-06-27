@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{plantilla/template :: head}">
+	<style>
+		.container {
+			width: 80%;
+			height: 600px;
+			margin: 0 auto;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header th:replace="~{plantilla/template :: header}"></header>
+	<!-- parámetro Titulo -->
+	<div class="container">
+		<br>
+		<div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+		<div class="card-body bg-light justify-content-center align-items-center">
+			<!--<form th:action="@{/report}" method="get" class="form-inline">
+				<div class="form-group">
+					<label for="parameter1" class="sr-only">Parámetro 1:</label>
+					<input type="text" id="parameter1" name="parameter1" class="form-control"
+						placeholder="Parámetro 1" />
+				</div>
+				<div class="form-group">
+					<label for="parameter2" class="sr-only">Parámetro 2:</label>
+					<input type="text" id="parameter2" name="parameter2" class="form-control"
+						placeholder="Parámetro 2" />
+				</div>
+				<button type="submit" class="btn btn-primary">Generar Reporte</button>
+			</form>-->
+			<form th:action="@{/views/reporte/reportPreview}" method="get" class="form-inline mt-3">
+				<div class="form-group">
+					<label for="parameter1" class="sr-only">Parámetro 1:</label>
+					<input type="text" id="parameter1" name="parameter1" class="form-control"
+						placeholder="Parámetro 1" />
+				</div>
+				<div class="form-group">
+					<label for="parameter2" class="sr-only">Parámetro 2:</label>
+					<input type="text" id="parameter2" name="parameter2" class="form-control"
+						placeholder="Parámetro 2" />
+				</div>
+				<button type="submit" class="btn btn-secondary">Previsualizar Reporte</button>
+			</form>
+		</div>
+	</div>
+	<footer th:replace="~{plantilla/template :: footer}"></footer>
+</body>
+
+</html>

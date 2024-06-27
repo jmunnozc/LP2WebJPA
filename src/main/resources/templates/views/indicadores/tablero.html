@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{plantilla/template :: head}">
+	<style>
+		.container {
+			width: 80%;
+			height: 600px;
+			margin: 0 auto;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header th:replace="~{plantilla/template :: header}"></header>
+	<!-- parámetro Titulo -->
+	<div class="container">
+		<h1 th:text="${titulo}"></h1>
+	</div>
+	<!-- parámetro Listado -->
+	<div class="container" style="width: 80%; height: 600px; margin: 0 auto;">
+	<iframe width="1000" height="500" th:src="${powerbiUrl}"></iframe>
+	</div>
+	<footer th:replace="~{plantilla/template :: footer}"></footer>
+</body>
+
+</html>

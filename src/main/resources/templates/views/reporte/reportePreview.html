@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{plantilla/template :: head}">
+	<style>
+		.container {
+			width: 80%;
+			height: 600px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+	<header th:replace="~{plantilla/template :: header}"></header>
+	<!-- parámetro Titulo -->
+	<div class="container">
+		<br> <a class="btn btn-primary btn-sm" th:href="@{/views/reporte/report}" th:text="'Exportar PDF'"
+			title="Exportar a PDF..."></a>
+		<br>
+		<div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+
+		<!-- parámetro Reporte -->
+		<div class="card-body bg-light justify-content-center align-items-center">
+			<div th:utext="${reporte}"></div>
+			<a href="#" onclick="window.history.back();" class="btn btn-secondary mt-3">Volver</a>
+		</div>
+	</div>
+	<footer th:replace="~{plantilla/template :: footer}"></footer>
+</body>
+
+</html>

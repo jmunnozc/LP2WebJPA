@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<head th:replace="~{plantilla/template :: head}">-->
+
+<head th:replace="~{plantilla/template :: head}">
+
+
+</head>
+
+<body>
+	<header th:replace="~{plantilla/template :: header}"></header>
+	<!-- parámetro Titulo -->
+	<div class="container">
+		<h1 th:text="${titulo}"></h1>
+		<!-- Muestra como texto simple -->
+		<!-- <p th:text="${productos}"></p> -->
+	</div>
+	<!-- parámetro Listado -->
+	<div class="container">
+		<a class="btn btn-primary btn-sm" th:href="@{/views/productos/create}" th:text="'Nuevo Producto'"
+			title="Crear nuevo producto..."></a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">CODIGO</th>
+					<th scope="col">NOMBRE</th>
+					<th scope="col">PRECIO</th>
+					<th scope="col">OPCIONES</th>
+				</tr>
+			</thead>
+			<tbody class="table-group-divider">
+				<tr th:each="prd:${productos}">
+					<th scope="row" th:text="${prd.id}">1</th>
+					<td th:text="${prd.codigo}"></td>
+					<td th:text="${prd.nombre}"></td>
+					<td th:text="${prd.precio}"></td>
+					<td>
+						<a class="btn btn-success btn-sm" th:href="@{/views/productos/edit/}+${prd.id}"
+							th:text="'Editar'" title="Editar producto..."></a>
+						<a class="btn btn-danger btn-sm" th:href="@{/views/productos/delete/}+${prd.id}"
+							th:text="'Eliminar'" title="Eliminar producto..." onclick="return confirm('Esta seguro que desea eliminar el registro?');"></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer th:replace="~{plantilla/template :: footer}"></footer>
+</body>
+
+</html>
